@@ -1,0 +1,33 @@
+## 内存
+free -h
+
+
+## 硬件
+查看磁盘空间使用情况
+yihanzhou23的储存空间为2TB
+
+以下-s表示汇总，-h表示人类可读格式
+*可替换成想看的目录，不写则是当前目录（不写=.）
+
+    # 展示文件系统的整体磁盘空间使用情况（感觉对我们来说没用）
+    df -h *
+[yihanzhou23@xpszlogin1 ~]$ df -h /gpfs/work/bio/yihanzhou23/
+Filesystem      Size  Used Avail Use% Mounted on
+gpfs            648T  211T  437T  33% /gpfs
+
+    # 查看目录或文件所占用的磁盘空间大小（都是当前已经使用的）
+    du -sh *
+
+[yihanzhou23@xpszlogin1 ~]$ du -sh
+2.0T    .
+
+[yihanzhou23@xpszlogin1 ~]$ du -h /gpfs/work/bio/yihanzhou23
+10G     /gpfs/work/bio/yihanzhou23/usAAA310-2/output/distance
+82G     /gpfs/work/bio/yihanzhou23/usAAA310-2/output
+1.5K    /gpfs/work/bio/yihanzhou23/usAAA310-2/pdb2gmx/toppar
+72M     /gpfs/work/bio/yihanzhou23/usAAA310-2/pdb2gmx
+3.0K    /gpfs/work/bio/yihanzhou23/usAAA310-2/mdp
+82G     /gpfs/work/bio/yihanzhou23/usAAA310-2
+省略
+2.0T    /gpfs/work/bio/yihanzhou23
+

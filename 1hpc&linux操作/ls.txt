@@ -1,0 +1,5 @@
+每行输出一个文件名
+ls -1 umbrella*.tpr
+
+每行输出一个文件的详细信息
+ls -l umbrella*.tpr

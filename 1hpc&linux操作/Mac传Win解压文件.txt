@@ -1,0 +1,6 @@
+Mac系统下的zip压缩包解压到Windows下出现乱码的解决方法:
+我：
+7-zip 解压到当前位置
+
+其他：
+https://blog.csdn.net/hqh45/article/details/42652349

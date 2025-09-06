@@ -1,0 +1,21 @@
+grep -v HOH conf1.gro > conf1_clean.gro
+gmx pdb2gmx -f conf1_clean.gro -o conf1_processed.gro -ff /gpfs/work/bio/xiahuang/yihan/vegf-yihan/toppar/forcefield.itp
+mv: cannot move 'forcefield.itp' to '/gpfs/spack/opt/linux-rocky8-icelake/gcc-9.5.0/gromacs-2023.2-4fqejx4uajjnye4iles4dxbwsmd57dhc/share/gromacs/top/forcefield.itp': Permission denied
+
+gmx grompp -f md.mdp -c conf1.gro -p topol.top -o md_0_1.tpr
+gmx mdrun -deffnm md_0_1 -v
+gmx mdrun -deffnm md_0_1 -nb gpu -v
+
+#增加可执行（x）权限
+chmod +x ./template-surm.sh
+#查看权限
+ls -l
+-rwxr-xr-x 1 xiahuang bio      477 Jul 19 11:46  template-surm.sh（绿色）（x）
+
+#Job Submission
+sbatch jobscript.slurm
+#View job information
+squeue -j jobid
+
+#使用此版本！！
+module load gromacs/2023.2-gcc-9.5.0-jzxesel

@@ -1,0 +1,10 @@
+gmx trjconv -f md.trr -s md.tpr -o 3000ps.gro -dump 3000
+，就可以提取最接近3000ps的那一帧
+
+gmx trjconv -f md.xtc -s md.tpr -o 0ps.pdb -dump 0
+
+gmx trjconv -f pull.xtc -s pull.tpr -o 0ps.gro -dump 0
+
+gmx trjconv -f md.xtc -s md.tpr -o 0ps.gro -dump 0
+
+选1 pro

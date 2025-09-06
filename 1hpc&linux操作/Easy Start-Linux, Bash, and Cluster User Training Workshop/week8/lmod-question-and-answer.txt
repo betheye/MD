@@ -1,0 +1,293 @@
+# Q1: Use the "module" command to query software starting with "metaw". What's the full name you found?
+# Q2: Use "module" to load "metawrap" and try to query its help information.
+# Q3: Which option of "module" can query all software?
+
+
+# Q1: Use the "module" command to query software starting with "metaw". What's the full name you found?
+[y4u65@lnxbio ~]$ 
+[y4u65@lnxbio ~]$ module spider metaw
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  metawrap-1.3.2-gcc-8.5.0-apqc6be: metawrap-1.3.2-gcc-8.5.0-apqc6be
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    This module can be loaded directly: module load metawrap-1.3.2-gcc-8.5.0-apqc6be
+
+    Help:
+      MetaWRAP aims to be an easy-to-use metagenomic wrapper suite that
+      accomplishes the core tasks of metagenomic analysis from start to
+      finish: read quality control, assembly, visualization, taxonomic
+      profiling, extracting draft genomes (binning), and functional
+      annotation. Additionally, metaWRAP takes bin extraction and analysis to
+      the next level (see module overview below). While there is no single
+      best approach for processing metagenomic data, metaWRAP is meant to be a
+      fast and simple approach before you delve deeper into parameterization
+      of your analysis. MetaWRAP can be applied to a variety of environments,
+      including gut, water, and soil microbiomes (see metaWRAP paper for
+      benchmarks). Each individual module of metaWRAP is a standalone program,
+      which means you can use only the modules you are interested in for your
+      data.
+      
+# full name: metawrap-1.3.2-gcc-8.5.0-apqc6be
+
+
+# Q2: Use "module" to load "metawrap" and try to query its help information.
+
+[y4u65@lnxbio ~]$ ml
+
+Currently Loaded Modules:
+  1) fastqc-0.11.9-gcc-8.5.0-couiege   2) gsl-2.7.1-gcc-8.5.0-a3qokrf   3) zlib-1.2.12-gcc-8.5.0-7tnucis   4) fastani-1.34-gcc-8.5.0-vbfnmdi   5) metawrap-1.3.2-gcc-8.5.0-apqc6be
+
+[y4u65@lnxbio ~]$ ml purge
+[y4u65@lnxbio ~]$ 
+[y4u65@lnxbio ~]$ module load metawrap-1.3.2-gcc-8.5.0-apqc6be 
+[y4u65@lnxbio ~]$ 
+[y4u65@lnxbio ~]$ module list
+
+Currently Loaded Modules:
+  1) metawrap-1.3.2-gcc-8.5.0-apqc6be
+
+ 
+
+[y4u65@lnxbio ~]$ metawrap -h
+
+MetaWRAP v=1.3.2
+Usage: metaWRAP [module]
+
+	Modules:
+	read_qc		Raw read QC module (read trimming and contamination removal)
+	assembly	Assembly module (metagenomic assembly)
+	kraken		KRAKEN module (taxonomy annotation of reads and assemblies)
+	kraken2		KRAKEN2 module (taxonomy annotation of reads and assemblies)
+	blobology	Blobology module (GC vs Abund plots of contigs and bins)
+
+	binning		Binning module (metabat, maxbin, or concoct)
+	bin_refinement	Refinement of bins from binning module
+	reassemble_bins Reassemble bins using metagenomic reads
+	quant_bins	Quantify the abundance of each bin across samples
+	classify_bins	Assign taxonomy to genomic bins
+	annotate_bins	Functional annotation of draft genomes
+
+	--help | -h		show this help message
+	--version | -v	show metaWRAP version
+	--show-config	show where the metawrap configuration files are stored
+
+[y4u65@lnxbio ~]$ metawrap --help
+
+MetaWRAP v=1.3.2
+Usage: metaWRAP [module]
+
+	Modules:
+	read_qc		Raw read QC module (read trimming and contamination removal)
+	assembly	Assembly module (metagenomic assembly)
+	kraken		KRAKEN module (taxonomy annotation of reads and assemblies)
+	kraken2		KRAKEN2 module (taxonomy annotation of reads and assemblies)
+	blobology	Blobology module (GC vs Abund plots of contigs and bins)
+
+	binning		Binning module (metabat, maxbin, or concoct)
+	bin_refinement	Refinement of bins from binning module
+	reassemble_bins Reassemble bins using metagenomic reads
+	quant_bins	Quantify the abundance of each bin across samples
+	classify_bins	Assign taxonomy to genomic bins
+	annotate_bins	Functional annotation of draft genomes
+
+	--help | -h		show this help message
+	--version | -v	show metaWRAP version
+	--show-config	show where the metawrap configuration files are stored
+
+# Q3: Which option of "module" can query all software?
+
+[y4u65@lnxbio ~]$ module avail 
+
+---------------------------------------------------------------------------------------------- /opt/apps/spack/share/spack/modules/linux-centos7-haswell ----------------------------------------------------------------------------------------------
+   bzip2-1.0.8-gcc-4.8.5-uge7nkh     libbsd-0.11.5-gcc-4.8.5-wl7puby    libxml2-2.9.13-gcc-4.8.5-kit57jv     pigz-2.7-gcc-4.8.5-x4bj22p                python-2.7.18-gcc-4.8.5-joranhh    util-linux-uuid-2.36.2-gcc-4.8.5-ryyoicq
+   expat-2.4.8-gcc-4.8.5-kzwqr2x     libffi-3.4.2-gcc-4.8.5-vlt4rwd     ncurses-6.2-gcc-4.8.5-uwsomdu        py-biopython-1.73-gcc-4.8.5-qfbrlp5       readline-8.1-gcc-4.8.5-vj4uibh     xz-5.2.5-gcc-4.8.5-jvkpqlg
+   gdbm-1.19-gcc-4.8.5-rllfy6p       libiconv-1.16-gcc-4.8.5-r5qnpa6    openblas-0.3.20-gcc-4.8.5-yq7qr67    py-numpy-1.16.6-gcc-4.8.5-5bhsgsh         sqlite-3.38.5-gcc-4.8.5-5bsobyx    zlib-1.2.12-gcc-4.8.5-5vroqen
+   gettext-0.21-gcc-4.8.5-gtwlkrf    libmd-1.0.4-gcc-4.8.5-au7ivkl      openssl-1.1.1o-gcc-4.8.5-hyhg5c4     py-setuptools-44.1.1-gcc-4.8.5-pef5j3u    tar-1.34-gcc-4.8.5-pejrywt         zstd-1.5.2-gcc-4.8.5-wqm6qfp
+
+------------------------------------------------------------------------------------------ /opt/apps/spack/share/spack/modules/linux-centos7-skylake_avx512 -------------------------------------------------------------------------------------------
+   anaconda3-2021.05-gcc-8.5.0-e6l3lh5                  libxrandr-1.5.0-gcc-8.5.0-hjslbwt                         py-babel-2.9.1-gcc-8.5.0-g4wy3vl                            r-4.1.3-gcc-8.5.0-tdeuqoe
+   argtable-2-13-gcc-8.5.0-ep5wxjx                      libxrender-0.9.10-gcc-8.5.0-3qkk3tn                       py-backports-functools-lru-cache-1.5-gcc-8.5.0-si5oblp      r-annotate-1.72.0-gcc-8.5.0-zog6vuf
+   aspera-cli-3.7.7-gcc-8.5.0-ulgkeqk                   libxslt-1.1.33-gcc-8.5.0-ap7fo7x                          py-bcbio-gff-0.6.2-gcc-8.5.0-gollhfx                        r-annotationdbi-1.56.2-gcc-8.5.0-jvwprre
+   assimp-5.2.3-gcc-8.5.0-gtlozik                       libxt-1.1.5-gcc-8.5.0-6r5dtdn                             py-beniget-0.4.1-gcc-8.5.0-sfrydba                          r-askpass-1.1-gcc-8.5.0-s7ccrpx
+   autoconf-2.69-gcc-8.5.0-r4d4zxr                      libyaml-0.2.5-gcc-8.5.0-dzlw743                           py-biom-format-2.1.10-gcc-8.5.0-hlmf646                     r-bh-1.78.0-0-gcc-8.5.0-nqssbiv
+   autodock-vina-1.2.3-gcc-8.5.0-ycgtv3t                llvm-11.1.0-gcc-8.5.0-qw76jhv                             py-biopandas-0.2.5-gcc-8.5.0-5772qdw                        r-bio3d-2.4-2-gcc-8.5.0-afesuoy
+   automake-1.15-gcc-8.5.0-g2yccg6                      llvm-openmp-ompt-3.9.2b2-gcc-8.5.0-s26h6cc                py-biopython-1.78-gcc-8.5.0-cjgpa2g                         r-biobase-2.54.0-gcc-8.5.0-fkbvzgw
+   automake-1.16.5-gcc-8.5.0-xtfo6dc                    lmdb-0.9.29-gcc-8.5.0-z5zxoja                             py-bottleneck-1.3.2-gcc-8.5.0-tre37nh                       r-biocgenerics-0.40.0-gcc-8.5.0-irjz4qx
+   bamtools-2.5.2-gcc-8.5.0-gi76kzc                     lz4-1.9.3-gcc-8.5.0-irapdpd                               py-cached-property-1.5.2-gcc-8.5.0-luwzgac                  r-biocinstaller-1.33.1-gcc-8.5.0-p6qmy2v
+   bazel-4.0.0-gcc-8.5.0-4zjh2eb                        lzma-4.32.7-gcc-8.5.0-2mk2zyh                             py-certifi-2021.10.8-gcc-8.5.0-5lgwzqc                      r-biocparallel-1.28.3-gcc-8.5.0-pa5faxo
+   bbmap-38.63-gcc-8.5.0-4itymva                        lzo-2.10-gcc-8.5.0-gamevry                                py-cffi-1.15.0-gcc-8.5.0-tabmhma                            r-biomformat-1.22.0-gcc-8.5.0-b7dbr7p
+   bcftools-1.14-gcc-8.5.0-cyuhwp4                      m4-1.4.19-gcc-8.5.0-l7s4hqx                               py-charset-normalizer-2.0.12-gcc-8.5.0-5n55567              r-biostrings-2.62.0-gcc-8.5.0-eqkk6ij
+   bcftools-1.14-gcc-8.5.0-sxls4yu                      mafft-7.481-gcc-8.5.0-ysomdu4                             py-checkm-genome-1.0.13-gcc-8.5.0-sdtawxc                   r-bit-4.0.4-gcc-8.5.0-i3xlm4a
+   beast1-1.10.4-gcc-8.5.0-4zo4plb                      mash-2.3-gcc-8.5.0-ry37yyh                                py-click-8.0.3-gcc-8.5.0-zjxiem3                            r-bit64-4.0.5-gcc-8.5.0-25zgc4o
+   bedtools2-2.30.0-gcc-8.5.0-bu6gi3e                   maxbin-2.2.7-gcc-8.5.0-p2ph42y                            py-colormath-3.0.0-gcc-8.5.0-rxlhy2o                        r-bitops-1.0-7-gcc-8.5.0-wsiypia
+   berkeley-db-18.1.40-gcc-8.5.0-s2ovqqi                mbedtls-2.28.0-gcc-8.5.0-wcudgno                          py-configargparse-1.2.3-gcc-8.5.0-en7bdg2                   r-blob-1.2.2-gcc-8.5.0-5xkhc34
+   binutils-2.38-gcc-8.5.0-7u3hi7x                      mcl-14-137-gcc-8.5.0-kpm6iea                              py-connectionpool-0.0.3-gcc-8.5.0-3ppxazs                   r-brio-1.1.3-gcc-8.5.0-27te7ml
+   binutils-2.38-gcc-8.5.0-cmw7me5                      mcscanx-1.0.0-gcc-8.5.0-psrisy2                           py-cutadapt-2.10-gcc-8.5.0-jtye6k6                          r-cachem-1.0.6-gcc-8.5.0-kthp6jf
+   bioawk-1.0-gcc-8.5.0-6zgvd5k                         megahit-1.1.4-gcc-8.5.0-7uwl3gd                           py-cycler-0.10.0-gcc-8.5.0-hmgrggj                          r-callr-3.7.0-gcc-8.5.0-tjv7fdk
+   bison-3.8.2-gcc-8.5.0-uym7z2x                        mesa-22.0.2-gcc-8.5.0-zhh5hwt                             py-cycler-0.11.0-gcc-8.5.0-mbljys3                          r-catools-1.18.2-gcc-8.5.0-icu2qby
+   blast-plus-2.12.0-gcc-8.5.0-3ahkz2p                  metabat-2.15-gcc-8.5.0-vo32min                            py-cython-0.29.14-gcc-8.5.0-tus3pvh                         r-cli-3.2.0-gcc-8.5.0-d4gxiti
+   blast-plus-2.12.0-gcc-8.5.0-xwlmzrc                  metawrap-1.3.2-gcc-8.5.0-apqc6be                   (L)    py-cython-0.29.30-gcc-8.5.0-4gz6puu                         r-colorspace-2.0-2-gcc-8.5.0-rgetdlw
+   blat-37-gcc-8.5.0-fuudumb                            miniconda2-4.7.12.1-gcc-8.5.0-74cnxaa                     py-cython-0.29.30-gcc-8.5.0-oki22qh                         r-crayon-1.4.2-gcc-8.5.0-p6o55wp
+   boost-1.56.0-gcc-8.5.0-5ib2cmy                       miniconda3-4.10.3-gcc-8.5.0-ojco3dm                       py-datrie-0.8.2-gcc-8.5.0-sj2hn3t                           r-curl-4.3.2-gcc-8.5.0-ttswyzg
+   boost-1.66.0-gcc-8.5.0-ac2cqfb                       minimap2-2.14-gcc-8.5.0-mxilniw                           py-dendropy-4.3.0-gcc-8.5.0-55n2ieh                         r-dbi-1.1.2-gcc-8.5.0-rhnypd2
+   boost-1.70.0-gcc-8.5.0-kxfqmac                       mpc-1.1.0-gcc-8.5.0-kxuma2y                               py-dendropy-4.3.0-gcc-8.5.0-dbd6ah5                         r-delayedarray-0.20.0-gcc-8.5.0-777rha5
+   boost-1.79.0-gcc-8.5.0-dvb7nhc                       mpfr-3.1.6-gcc-8.5.0-socefju                              py-dendropy-4.3.0-gcc-8.5.0-kkgsjze                         r-desc-1.4.0-gcc-8.5.0-mvrome4
+   boost-1.79.0-gcc-8.5.0-zn4wayv                       mpfr-4.1.0-gcc-8.5.0-e25a6ji                              py-dnaio-0.4.2-gcc-8.5.0-4euja5v                            r-deseq2-1.34.0-gcc-8.5.0-lkupmal
+   bowtie2-2.4.2-gcc-8.5.0-kgezdpz                      mummer-3.23-gcc-8.5.0-fyq4jor                             py-dnaio-0.4.2-gcc-8.5.0-qgowjof                            r-diffobj-0.3.5-gcc-8.5.0-47y65by
+   bracken-1.0.0-gcc-8.5.0-jtsvbcn                      mummer-3.23-gcc-8.5.0-i6dbyy5                             py-docutils-0.16-gcc-8.5.0-5qtodas                          r-digest-0.6.29-gcc-8.5.0-emzd4pw
+   bwa-0.7.17-gcc-8.5.0-oo4toav                         muscle-3.8.1551-gcc-8.5.0-yg6fbvj                         py-docutils-0.17.1-gcc-8.5.0-2evy4s2                        r-dnacopy-1.68.0-gcc-8.5.0-e5pd6wp
+   bzip2-1.0.8-gcc-8.5.0-q23gitl                        mysql-8.0.19-gcc-8.5.0-a5dxpe5                            py-fastcluster-1.1.26-gcc-8.5.0-fjnod74                     r-ellipsis-0.3.2-gcc-8.5.0-zl6rcrc
+   cairo-1.14.8-gcc-8.5.0-dwmhwgm                       nasm-2.15.05-gcc-8.5.0-ch6cuy5                            py-filelock-3.5.0-gcc-8.5.0-4lixv66                         r-evaluate-0.14-gcc-8.5.0-qinrowa
+   cairo-1.16.0-gcc-8.5.0-2bjrtyu                       ncbi-magicblast-1.5.0-gcc-8.5.0-nudzwmd                   py-fonttools-4.31.2-gcc-8.5.0-ylgyb7r                       r-fansi-1.0.2-gcc-8.5.0-xsjrkee
+   cairo-1.16.0-gcc-8.5.0-kmee555                       ncbi-toolkit-22_0_0-gcc-8.5.0-gk5pk5j                     py-future-0.18.2-gcc-8.5.0-g5gwcno                          r-farver-2.1.0-gcc-8.5.0-kp2nvsu
+   capnproto-0.8.0-gcc-8.5.0-wexrpgc                    ncurses-6.2-gcc-8.5.0-s67ekuf                             py-gast-0.5.3-gcc-8.5.0-t7bliyi                             r-fastmap-1.1.0-gcc-8.5.0-7ng2gkf
+   cblas-2015-06-06-gcc-8.5.0-ic35boq                   netcdf-c-4.8.1-gcc-8.5.0-4l7tobr                          py-gffutils-0.10.1-gcc-8.5.0-jzqopms                        r-formatr-1.11-gcc-8.5.0-iqjq2yl
+   cli11-1.9.1-gcc-8.5.0-f5na2ro                        netcdf-c-4.8.1-gcc-8.5.0-gxtywax                          py-gitdb-4.0.9-gcc-8.5.0-fy43gbu                            r-futile-logger-1.4.3-gcc-8.5.0-cl2xcot
+   clustal-omega-1.2.4-gcc-8.5.0-32gy2wk                netcdf-fortran-4.5.4-gcc-8.5.0-ljbovsr                    py-gitpython-3.1.24-gcc-8.5.0-kcr5kj4                       r-futile-options-1.0.1-gcc-8.5.0-5eeztwk
+   cmake-3.14.0-gcc-8.5.0-4ruabr6                       netlib-lapack-3.10.1-gcc-8.5.0-uzhrvwl                    py-glob2-0.7-gcc-8.5.0-5zfpf5u                              r-genefilter-1.76.0-gcc-8.5.0-452h3ih
+   cmake-3.19.8-gcc-8.5.0-m5sqh43                       nettle-3.4.1-gcc-8.5.0-i6fje4a                            py-h5py-2.10.0-gcc-8.5.0-6bessnj                            r-geneplotter-1.72.0-gcc-8.5.0-52d5gtq
+   cmake-3.23.1-gcc-8.5.0-v7krosh                       nextflow-22.04.3-gcc-8.5.0-yuxwwyt                        py-h5py-3.6.0-gcc-8.5.0-ygsubje                             r-genomeinfodb-1.30.1-gcc-8.5.0-sdln5pf
+   cmake-3.5.0-gcc-8.5.0-7jipfuu                        nghttp2-1.44.0-gcc-8.5.0-ghjycam                          py-idna-3.3-gcc-8.5.0-gjpiuuh                               r-genomeinfodbdata-1.2.7-gcc-8.5.0-jkzklbm
+   concoct-1.3.0-gcc-8.5.0-luj5qgt                      ninja-1.10.2-gcc-8.5.0-efbwstm                            py-imagesize-1.3.0-gcc-8.5.0-odrljgc                        r-genomicranges-1.46.1-gcc-8.5.0-6rm7ufl
+   cuda-11.7.0-gcc-8.5.0-eiq2qio                        numactl-2.0.14-gcc-8.5.0-pvecdt4                          py-importlib-metadata-4.11.1-gcc-8.5.0-lcfaepf              r-ggplot2-3.3.5-gcc-8.5.0-irk4i3r
+   curl-7.83.0-gcc-8.5.0-v3scdyk                        nvptx-tools-2021-05-21-gcc-8.5.0-g6jl6d6                  py-iniconfig-1.1.1-gcc-8.5.0-7pkxn5z                        r-glue-1.6.1-gcc-8.5.0-tt4bz65
+   curl-7.83.0-gcc-8.5.0-zkokvul                        onednn-2.5.2-gcc-8.5.0-25tn6cd                            py-intel-openmp-2021.1.2-gcc-8.5.0-aatsq3n                  r-gplots-3.1.1-gcc-8.5.0-5qy632w
+   diamond-2.0.15-gcc-8.5.0-ltico7y                     ont-albacore-2.3.1-gcc-8.5.0-szkyo67                      py-ipython-genutils-0.2.0-gcc-8.5.0-fccu2mt                 r-gtable-0.3.0-gcc-8.5.0-bm4jppy
+   diffutils-3.8-gcc-8.5.0-eqvmpkj                      ont-tombo-1.5.1-gcc-8.5.0-ltfn664                         py-jinja2-3.0.3-gcc-8.5.0-jdinu4l                           r-gtools-3.9.2-gcc-8.5.0-wov45il
+   dos2unix-7.4.2-gcc-8.5.0-k5nbwms                     openblas-0.3.20-gcc-8.5.0-zhkag5n                         py-joblib-0.10.0-gcc-8.5.0-tsumyts                          r-httr-1.4.2-gcc-8.5.0-nfwvjpk
+   double-conversion-3.1.5-gcc-8.5.0-l52ujmt            openjdk-1.8.0_265-b01-gcc-8.5.0-c6xbdrc                   py-joblib-1.1.0-gcc-8.5.0-fvri3ew                           r-iranges-2.28.0-gcc-8.5.0-gr3fvvf
+   doxygen-1.9.3-gcc-8.5.0-mdgkisu                      openjdk-11.0.15_10-gcc-8.5.0-vwokqj7                      py-jsonschema-4.4.0-gcc-8.5.0-lq62v3r                       r-isoband-0.2.5-gcc-8.5.0-turalrq
+   dssp-2.3.0-gcc-8.5.0-uhjprbr                         openmpi-4.1.3-gcc-8.5.0-3rjdf37                           py-jupyter-core-4.9.2-gcc-8.5.0-vj6o6v3                     r-jpeg-0.1-9-gcc-8.5.0-jjptfjn
+   dssp-3.1.4-gcc-8.5.0-zb3tmmg                         openmpi-4.1.3-gcc-8.5.0-mq2skna                           py-kiwisolver-1.1.0-gcc-8.5.0-mfggl6h                       r-jsonlite-1.8.0-gcc-8.5.0-ogznvyb
+   eigen-3.3.7-gcc-8.5.0-x6uscpk                        openmpi-4.1.3-gcc-8.5.0-ponb6k6                           py-kiwisolver-1.3.2-gcc-8.5.0-bqf3vnx                       r-keggrest-1.34.0-gcc-8.5.0-a3dap3l
+   eigen-3.4.0-gcc-8.5.0-rbdwpjw                        openssh-9.0p1-gcc-8.5.0-rbdilh7                           py-lzstring-1.0.3-gcc-8.5.0-yr6bvfs                         r-kernsmooth-2.23-20-gcc-8.5.0-zvp4k5d
+   elfutils-0.186-gcc-8.5.0-5332k7p                     openssl-1.1.1o-gcc-8.5.0-z4b4klm                          py-macs2-2.2.4-gcc-8.5.0-i2t5e55                            r-labeling-0.4.2-gcc-8.5.0-h4433zg
+   expat-2.4.8-gcc-8.5.0-tb3tc6s                        orthofinder-2.5.4-gcc-8.5.0-5uj6pms                       py-markdown-3.3.4-gcc-8.5.0-jhdcxen                         r-lambda-r-1.2.4-gcc-8.5.0-4nz4bjw
+   fasta-36.3.8g-gcc-8.5.0-nvuvuuy                      pango-1.50.7-gcc-8.5.0-c5mc7i5                            py-markupsafe-2.0.1-gcc-8.5.0-wjg3bjc                       r-lattice-0.20-45-gcc-8.5.0-whtkj6o
+   fastani-1.34-gcc-8.5.0-vbfnmdi                       parallel-20210922-gcc-8.5.0-v7ilxoy                       py-matplotlib-2.2.3-gcc-8.5.0-7llv4jb                       r-lifecycle-1.0.1-gcc-8.5.0-krtmaxu
+   fastme-2.1.5.1-gcc-8.5.0-yssthv2                     parallel-netcdf-1.12.2-gcc-8.5.0-k256ld2                  py-matplotlib-2.2.5-gcc-8.5.0-ccnyama                       r-locfit-1.5-9.4-gcc-8.5.0-yradq56
+   fastp-0.23.4-gcc-8.5.0-p4cgoop                       paraview-5.10.1-gcc-8.5.0-diu7tnk                         py-matplotlib-2.2.5-gcc-8.5.0-cjeqvy4                       r-magrittr-2.0.2-gcc-8.5.0-ryp52hh
+   fastqc-0.11.9-gcc-8.5.0-couiege                      pcre-8.45-gcc-8.5.0-45soblr                               py-matplotlib-3.0.2-gcc-8.5.0-agbgwqk                       r-mass-7.3-55-gcc-8.5.0-etdkluu
+   fasttree-2.1.10-gcc-8.5.0-jzumr6k                    pcre2-10.39-gcc-8.5.0-tl44esf                             py-matplotlib-3.5.2-gcc-8.5.0-2b4naql                       r-matrix-1.4-0-gcc-8.5.0-vv6vfzo
+   fftw-3.3.10-gcc-8.5.0-gfsjznl                        pegtl-3.2.0-gcc-8.5.0-k5xqalv                             py-mpi4py-3.1.2-gcc-8.5.0-do54wru                           r-matrixgenerics-1.6.0-gcc-8.5.0-svieiat
+   font-util-1.3.2-gcc-8.5.0-ovidp5v                    perl-5.34.1-gcc-8.5.0-qvpxqn2                             py-mpi4py-3.1.2-gcc-8.5.0-onklyfd                           r-matrixstats-0.61.0-gcc-8.5.0-zwudtcy
+   fontconfig-2.13.94-gcc-8.5.0-uktocxf                 perl-algorithm-diff-1.1903-gcc-8.5.0-6ohaz37              py-multiqc-1.7-gcc-8.5.0-cpm2hiw                            r-memoise-2.0.1-gcc-8.5.0-wd55lfk
+   fraggenescan-1.30-gcc-8.5.0-jsdxcx6                  perl-alien-build-1.86-gcc-8.5.0-hmdjton                   py-nbformat-5.1.3-gcc-8.5.0-o3opb2z                         r-mgcv-1.8-38-gcc-8.5.0-43k2dx5
+   fraggenescan-1.31-gcc-8.5.0-gm2572v                  perl-alien-libxml2-0.10_01-gcc-8.5.0-6mxzzlc              py-networkx-2.7.1-gcc-8.5.0-pwnz3b5                         r-mime-0.12-gcc-8.5.0-jlrvvip
+   freetype-2.11.1-gcc-8.5.0-rp6iwmn                    perl-bio-searchio-hmmer-1.7.3-gcc-8.5.0-6yzprm3           py-nose-1.3.7-gcc-8.5.0-velagy5                             r-munsell-0.5.0-gcc-8.5.0-mwn6zop
+   fribidi-1.0.12-gcc-8.5.0-pcuhnyg                     perl-bioperl-1.7.6-gcc-8.5.0-7agt44s                      py-nose-1.3.7-gcc-8.5.0-w62jjcl                             r-nlme-3.1-155-gcc-8.5.0-vofxnaz
+   gatk-4.2.6.1-gcc-8.5.0-xtq7x5v                       perl-capture-tiny-0.46-gcc-8.5.0-jsqy63h                  py-numexpr-2.7.3-gcc-8.5.0-jzlsb4q                          r-openssl-1.4.6-gcc-8.5.0-gl3wres
+   gawk-5.1.1-gcc-8.5.0-jqx564g                         perl-class-data-inheritable-0.08-gcc-8.5.0-whnchvy        py-numpy-1.13.0-gcc-8.5.0-4jvwmnr                           r-pillar-1.7.0-gcc-8.5.0-wa5gcel
+   gcc-11.3.0-gcc-8.5.0-bzzlmoa                         perl-data-stag-0.14-gcc-8.5.0-ez25j3m                     py-numpy-1.16.6-gcc-8.5.0-hznr2xu                           r-pkgconfig-2.0.3-gcc-8.5.0-4h7bnx7
+   gcc-7.5.0-gcc-8.5.0-3pqb2v7                          perl-devel-stacktrace-2.02-gcc-8.5.0-pnutar6              py-numpy-1.18.0-gcc-8.5.0-wkdi57q                           r-pkgload-1.2.4-gcc-8.5.0-w5g3im3
+   gdbm-1.19-gcc-8.5.0-a3ogy6x                          perl-encode-locale-1.05-gcc-8.5.0-crn5bfo                 py-numpy-1.19.5-gcc-8.5.0-a5tmjum                           r-plogr-0.2.0-gcc-8.5.0-zfrsidj
+   gettext-0.21-gcc-8.5.0-ixxcff2                       perl-error-0.17028-gcc-8.5.0-chai2fd                      py-numpy-1.20.0-gcc-8.5.0-2l63gho                           r-plyr-1.8.6-gcc-8.5.0-ltqabgd
+   giflib-5.2.1-gcc-8.5.0-g2xgn4a                       perl-exception-class-1.43-gcc-8.5.0-cckto44               py-numpy-1.20.3-gcc-8.5.0-flln6s7                           r-png-0.1-7-gcc-8.5.0-fo34i5q
+   git-2.35.2-gcc-8.5.0-adt352r                         perl-exporter-tiny-1.000000-gcc-8.5.0-wnobxjc             py-numpy-1.22.4-gcc-8.5.0-pgb2oni                           r-praise-1.0.0-gcc-8.5.0-wsohrnv
+   glib-2.72.1-gcc-8.5.0-5gkznv2                        perl-extutils-config-0.008-gcc-8.5.0-7ckh7rv              py-numpy-1.22.4-gcc-8.5.0-xelyzao                           r-processx-3.5.2-gcc-8.5.0-js6fgcl
+   glimmer-3.02b-gcc-8.5.0-5mdcyls                      perl-extutils-helpers-0.026-gcc-8.5.0-2wi4mkv             py-numpydoc-1.1.0-gcc-8.5.0-22rexl2                         r-ps-1.6.0-gcc-8.5.0-j4kuszg
+   glproto-1.4.17-gcc-8.5.0-amtqz4g                     perl-extutils-installpaths-0.012-gcc-8.5.0-sapjlrd        py-ont-fast5-api-0.3.2-gcc-8.5.0-vqkopqa                    r-r6-2.5.1-gcc-8.5.0-pbhtugp
+   gmake-4.3-gcc-8.5.0-sn6x7gn                          perl-ffi-checklib-0.25-gcc-8.5.0-hzbngwi                  py-packaging-21.3-gcc-8.5.0-z2tebx4                         r-rcolorbrewer-1.1-2-gcc-8.5.0-m7j4hxx
+   gmp-6.2.1-gcc-8.5.0-cgjcwfa                          perl-file-chdir-0.1011-gcc-8.5.0-yfpqlah                  py-pandas-1.4.2-gcc-8.5.0-emvrmf6                           r-rcpp-1.0.8-gcc-8.5.0-x3edgxq
+   gnuplot-5.4.3-gcc-8.5.0-2ygsrsl                      perl-file-listing-6.04-gcc-8.5.0-ageiddu                  py-picrust2-2.3.0-b-gcc-8.5.0-l2thnqo                       r-rcpparmadillo-0.10.8.1.0-gcc-8.5.0-ul6esof
+   gnuplot-5.4.3-gcc-8.5.0-l7qq3es                      perl-file-which-1.22-gcc-8.5.0-2ksyyn7                    py-pillow-6.2.2-gcc-8.5.0-loyaciv                           r-rcurl-1.98-1.6-gcc-8.5.0-slp5vew
+   gnutls-3.6.15-gcc-8.5.0-bogne67                      perl-getopt-tabular-0.3-gcc-8.5.0-vwi2sq4                 py-pillow-9.0.0-gcc-8.5.0-lcm5kt5                           r-rematch2-2.1.2-gcc-8.5.0-oqla7gm
+   go-1.18-gcc-8.5.0-2n2xu46                            perl-graph-0.9704-gcc-8.5.0-5f5djep                       py-pip-21.3.1-gcc-8.5.0-5bbbyc7                             r-rhdf5-2.38.0-gcc-8.5.0-nlolhtl
+   gobject-introspection-1.72.0-gcc-8.5.0-2m6tpxu       perl-html-parser-3.72-gcc-8.5.0-cdytd4u                   py-pluggy-1.0.0-gcc-8.5.0-jwiahzb                           r-rhdf5filters-1.6.0-gcc-8.5.0-rc3tgzx
+   gobject-introspection-1.72.0-gcc-8.5.0-i6fgjkj       perl-html-tagset-3.20-gcc-8.5.0-rzpvmzt                   py-ply-3.11-gcc-8.5.0-53kfrrt                               r-rhdf5lib-1.16.0-gcc-8.5.0-gbbmprv
+   gromacs-2018.2-gcc-8.5.0-2rzv7tq                     perl-http-cookies-6.04-gcc-8.5.0-zdwbkuh                  py-psutil-5.8.0-gcc-8.5.0-socjiuu                           r-rlang-1.0.1-gcc-8.5.0-jk3zmcf
+   gromacs-2018.8-gcc-8.5.0-ev2tmwg                     perl-http-daemon-6.01-gcc-8.5.0-zsckeig                   py-pulp-2.6.0-gcc-8.5.0-jddjsfl                             r-rprojroot-2.0.2-gcc-8.5.0-5g5es4u
+   gromacs-2020.6-gcc-8.5.0-e5svxt5                     perl-http-date-6.02-gcc-8.5.0-ofppmxe                     py-py-1.11.0-gcc-8.5.0-i4kzdp5                              r-rsqlite-2.2.10-gcc-8.5.0-bfei7v6
+   gromacs-2021.5-gcc-8.5.0-7o7y7mz                     perl-http-message-6.13-gcc-8.5.0-zjot5bi                  py-pybind11-2.8.1-gcc-8.5.0-cfntsty                         r-rstudioapi-0.13-gcc-8.5.0-lkj5euv
+   gsl-2.7.1-gcc-8.5.0-a3qokrf                          perl-http-negotiate-6.01-gcc-8.5.0-myivdlg                py-pycodestyle-2.8.0-gcc-8.5.0-tmpvz36                      r-s4vectors-0.32.3-gcc-8.5.0-tnhlgip
+   gsl-2.7.1-gcc-8.5.0-m32ocgt                          perl-io-html-1.001-gcc-8.5.0-gnyqz3u                      py-pycparser-2.20-gcc-8.5.0-4bjrhci                         r-scales-1.1.1-gcc-8.5.0-yr774sl
+   gzip-1.12-gcc-8.5.0-h6safxs                          perl-io-socket-ssl-2.052-gcc-8.5.0-jecryfu                py-pyfaidx-0.5.5.2-gcc-8.5.0-um57sol                        r-snow-0.4-4-gcc-8.5.0-4zc5q3v
+   harfbuzz-4.2.1-gcc-8.5.0-76xrjip                     perl-io-string-1.08-gcc-8.5.0-4ighmuk                     py-pygments-2.10.0-gcc-8.5.0-523miye                        r-summarizedexperiment-1.24.0-gcc-8.5.0-kpqcnlf
+   harfbuzz-4.2.1-gcc-8.5.0-wopuqfi                     perl-io-stringy-2.111-gcc-8.5.0-sot2ciy                   py-pyparsing-2.4.7-gcc-8.5.0-5h5sw4g                        r-survival-3.2-13-gcc-8.5.0-wlmy3uy
+   hdf5-1.10.8-gcc-8.5.0-cpchaiu                        perl-io-tty-1.13_01-gcc-8.5.0-o6h6nab                     py-pyparsing-3.0.6-gcc-8.5.0-4srvu5r                        r-sys-3.4-gcc-8.5.0-t2mne42
+   hdf5-1.12.2-gcc-8.5.0-h6biwzi                        perl-ipc-run-20180523.0-gcc-8.5.0-kvhkilx                 py-pyqt5-5.13.1-gcc-8.5.0-boghcqw                           r-testthat-3.1.2-gcc-8.5.0-dyctwa7
+   hdf5-1.12.2-gcc-8.5.0-uuvmo2a                        perl-libwww-perl-6.33-gcc-8.5.0-ylps26c                   py-pyrsistent-0.18.0-gcc-8.5.0-qlf7lig                      r-tibble-3.1.6-gcc-8.5.0-2lbrx3j
+   hdf5-1.8.14-gcc-8.5.0-xkctufm                        perl-libxml-perl-0.08-gcc-8.5.0-cjraxg2                   py-pysam-0.18.0-gcc-8.5.0-2a7ogsl                           r-utf8-1.2.2-gcc-8.5.0-n5t44f7
+   hisat2-2.2.0-gcc-8.5.0-rvqaoea                       perl-list-moreutils-0.428-gcc-8.5.0-umpjyrg               py-pysam-0.18.0-gcc-8.5.0-am4b4vt                           r-vctrs-0.3.8-gcc-8.5.0-l46zo4x
+   hmmer-3.3.2-gcc-8.5.0-r4vrjwg                        perl-list-moreutils-xs-0.428-gcc-8.5.0-bte657f            py-pytest-6.2.5-gcc-8.5.0-rp42oul                           r-viridislite-0.4.0-gcc-8.5.0-m72sz5x
+   hpl-2.3-gcc-8.5.0-b2ppp4s                            perl-lwp-mediatypes-6.02-gcc-8.5.0-2clp6bb                py-python-dateutil-2.8.2-gcc-8.5.0-6pozfzv                  r-waldo-0.3.1-gcc-8.5.0-6hnswt2
+   htslib-1.14-gcc-8.5.0-lrb2ca4                        perl-lwp-protocol-https-6.04-gcc-8.5.0-t6mc3n4            py-python-dateutil-2.8.2-gcc-8.5.0-btxpdie                  r-withr-2.4.3-gcc-8.5.0-rzfsyv6
+   hwloc-1.11.13-gcc-8.5.0-yozdpnj                      perl-math-cdf-0.1-gcc-8.5.0-pd3gr7x                       py-python-dateutil-2.8.2-gcc-8.5.0-qoonbx6                  r-xml-3.99-0.8-gcc-8.5.0-ohcv2y5
+   hwloc-2.7.1-gcc-8.5.0-dwtz3rc                        perl-mce-1.874-gcc-8.5.0-bgaqohd                          py-pythran-0.11.0-gcc-8.5.0-bbnuopo                         r-xtable-1.8-4-gcc-8.5.0-lqa6cvz
+   hyphy-2.3.14-gcc-8.5.0-ha2nrpl                       perl-module-build-0.4224-gcc-8.5.0-fglekb3                py-pytz-2021.3-gcc-8.5.0-ojej3k2                            r-xvector-0.34.0-gcc-8.5.0-jleuujd
+   icu4c-67.1-gcc-8.5.0-arnxylp                         perl-module-build-tiny-0.039-gcc-8.5.0-25njtmz            py-pytz-2021.3-gcc-8.5.0-wdxwgiv                            r-zlibbioc-1.40.0-gcc-8.5.0-f4atdtk
+   igvtools-2.3.98-gcc-8.5.0-ohquj4r                    perl-mozilla-ca-20160104-gcc-8.5.0-uoi2hcm                py-pyyaml-6.0-gcc-8.5.0-tmbfj74                             randrproto-1.5.0-gcc-8.5.0-m3bp22h
+   inputproto-2.3.2-gcc-8.5.0-dy6bphv                   perl-net-http-6.17-gcc-8.5.0-uswimu3                      py-quast-4.6.3-gcc-8.5.0-k7uacp6                            raxml-8.2.12-gcc-8.5.0-6zvyhvv
+   intel-oneapi-compilers-2022.1.0-gcc-8.5.0-yrzdumd    perl-net-ssleay-1.85-gcc-8.5.0-xcuifrw                    py-ratelimiter-1.2.0.post0-gcc-8.5.0-uobiuvp                readline-8.1-gcc-8.5.0-yktz7wy
+   intel-oneapi-mkl-2021.4.0-gcc-8.5.0-qaujwrr          perl-parallel-forkmanager-1.19-gcc-8.5.0-tdjom5p          py-requests-2.26.0-gcc-8.5.0-k4q55c4                        renderproto-0.11.1-gcc-8.5.0-onrpfsq
+   intel-oneapi-mpi-2021.6.0-gcc-8.5.0-xgjltrp          perl-path-tiny-0.108-gcc-8.5.0-ihrvcro                    py-rpy2-3.0.4-gcc-8.5.0-wiq2jiv                             rpcsvc-proto-1.4-gcc-8.5.0-2wbpou3
+   intel-oneapi-tbb-2021.6.0-gcc-8.5.0-ydx5upm          perl-readonly-2.05-gcc-8.5.0-3vwpukx                      py-scikit-learn-0.22-gcc-8.5.0-wxzygda                      rsync-3.2.4-gcc-8.5.0-xkc5ad2
+   jasper-3.0.3-gcc-8.5.0-wkeqeeg                       perl-set-scalar-1.29-gcc-8.5.0-hppnmcy                    py-scipy-1.2.3-gcc-8.5.0-fhlemof                            rust-1.60.0-gcc-8.5.0-3zy3ceh
+   json-glib-1.6.6-gcc-8.5.0-gbgchus                    perl-sub-uplevel-0.2800-gcc-8.5.0-lvwfbqm                 py-scipy-1.8.1-gcc-8.5.0-hfwvyl2                            samblaster-0.1.24-gcc-8.5.0-filk4po
+   jsoncpp-1.9.4-gcc-8.5.0-cgfm7br                      perl-test-deep-1.127-gcc-8.5.0-fkfwruh                    py-seaborn-0.9.0-gcc-8.5.0-nvtwd25                          samtools-1.14-gcc-8.5.0-mxflewt
+   kbproto-1.0.7-gcc-8.5.0-6la4wbe                      perl-test-differences-0.64-gcc-8.5.0-6527to7              py-setuptools-44.1.1-gcc-8.5.0-sjfe5v2                      samtools-1.14-gcc-8.5.0-uvqyufe
+   kraken2-2.1.1-gcc-8.5.0-5vbredn                      perl-test-exception-0.43-gcc-8.5.0-pfyleee                py-setuptools-50.3.2-gcc-8.5.0-kglvzcb                      seqtk-1.3-gcc-8.5.0-bl5yaac
+   krb5-1.19.3-gcc-8.5.0-zaxa2hn                        perl-test-most-0.35-gcc-8.5.0-7kko4wo                     py-setuptools-59.4.0-gcc-8.5.0-ch3ilxk                      snakemake-6.15.1-gcc-8.5.0-lwlh7m5
+   lcms-2.13.1-gcc-8.5.0-pnvdsye                        perl-test-needs-0.002005-gcc-8.5.0-btvfsd3                py-simplegeneric-0.8.1-gcc-8.5.0-2ktwrcy                    sniffles-1.0.7-gcc-8.5.0-32ddfsh
+   libarchive-3.5.2-gcc-8.5.0-da4n6nr                   perl-test-requiresinternet-0.05-gcc-8.5.0-qzggdh5         py-simplejson-3.17.2-gcc-8.5.0-2ou2rtm                      spades-3.15.3-gcc-8.5.0-7lafyz5
+   libbeagle-3.1.2-gcc-8.5.0-jdqoidw                    perl-test-warn-0.30-gcc-8.5.0-gvze4vr                     py-sip-4.19.21-gcc-8.5.0-6nw6umd                            sqlite-3.38.5-gcc-8.5.0-2lz7lqg
+   libbsd-0.11.5-gcc-8.5.0-hrkn5gc                      perl-text-diff-1.45-gcc-8.5.0-p43mysx                     py-six-1.16.0-gcc-8.5.0-d2xkkdh                             sratoolkit-2.10.9-gcc-8.5.0-iaxqdyt
+   libcerf-1.3-gcc-8.5.0-yq56xbe                        perl-time-hires-1.9746-gcc-8.5.0-twgui73                  py-six-1.16.0-gcc-8.5.0-sja3tgc                             star-2.7.6a-gcc-8.5.0-tt2worm
+   libdeflate-1.10-gcc-8.5.0-z2f4net                    perl-try-tiny-0.28-gcc-8.5.0-sct3jid                      py-six-1.16.0-gcc-8.5.0-ymiqnqe                             stringtie-1.3.4d-gcc-8.5.0-soznznl
+   libedit-3.1-20210216-gcc-8.5.0-55nxsqc               perl-uri-1.72-gcc-8.5.0-yag65yo                           py-smart-open-5.2.1-gcc-8.5.0-mg6wx67                       subread-2.0.2-gcc-8.5.0-qzo7ix4
+   libevent-2.1.12-gcc-8.5.0-o2lk7yy                    perl-www-robotrules-6.02-gcc-8.5.0-yybs5ye                py-smmap-3.0.4-gcc-8.5.0-fppmyvd                            swig-4.0.2-gcc-8.5.0-sdxkowp
+   libffi-3.4.2-gcc-8.5.0-yl3gklh                       perl-xml-dom-1.46-gcc-8.5.0-lqqw5mj                       py-snowballstemmer-2.0.0-gcc-8.5.0-bmjx3ot                  tar-1.34-gcc-8.5.0-bzomz6z
+   libgcrypt-1.9.4-gcc-8.5.0-bmsw44n                    perl-xml-dom-xpath-0.14-gcc-8.5.0-zc5gemc                 py-spectra-0.0.11-gcc-8.5.0-ggr5ixm                         tbl2asn-2022-04-26-gcc-8.5.0-iqp3oyy
+   libgd-2.2.4-gcc-8.5.0-a36fbip                        perl-xml-filter-buffertext-1.01-gcc-8.5.0-zupx6cm         py-sphinx-4.4.0-gcc-8.5.0-4ehqtv6                           texinfo-6.5-gcc-8.5.0-cazdnmv
+   libgit2-1.3.1-gcc-8.5.0-n3xxsai                      perl-xml-libxml-2.0201-gcc-8.5.0-vujtbxd                  py-sphinx-4.4.0-gcc-8.5.0-fgxkh5d                           tmux-3.2a-gcc-8.5.0-4qllwux
+   libgpg-error-1.43-gcc-8.5.0-d62dtid                  perl-xml-namespacesupport-1.12_9-gcc-8.5.0-ujw344g        py-sphinx-rtd-theme-0.5.2-gcc-8.5.0-ay5mn34                 tophat-2.1.2-gcc-8.5.0-kh6runj
+   libice-1.0.9-gcc-8.5.0-yhyryah                       perl-xml-parser-2.44-gcc-8.5.0-j33xeuc                    py-sphinxcontrib-applehelp-1.0.1-gcc-8.5.0-2tpv5na          trf-4.09.1-gcc-8.5.0-zfubv2p
+   libiconv-1.16-gcc-8.5.0-lu4xura                      perl-xml-regexp-0.04-gcc-8.5.0-spokqws                    py-sphinxcontrib-devhelp-1.0.1-gcc-8.5.0-h2kpfjo            trimal-1.4.1-gcc-8.5.0-7qu4aqh
+   libidn2-2.3.0-gcc-8.5.0-yfosaao                      perl-xml-sax-1.02-gcc-8.5.0-bldlz3c                       py-sphinxcontrib-htmlhelp-2.0.0-gcc-8.5.0-ka5ult5           trimgalore-0.6.6-gcc-8.5.0-pctdye3
+   libisal-2.29.0-gcc-8.5.0-blgwjnr                     perl-xml-sax-base-1.09-gcc-8.5.0-6gumowz                  py-sphinxcontrib-jsmath-1.0.1-gcc-8.5.0-v6dwhkg             trimmomatic-0.39-gcc-8.5.0-b262mri
+   libjpeg-turbo-2.1.3-gcc-8.5.0-w74vsgv                perl-xml-sax-writer-0.57-gcc-8.5.0-xes4eve                py-sphinxcontrib-qthelp-1.0.2-gcc-8.5.0-fu7vs3i             util-linux-uuid-2.37.4-gcc-8.5.0-a7gejcr
+   libmd-1.0.4-gcc-8.5.0-p4iqxll                        perl-xml-simple-2.24-gcc-8.5.0-hyzeujh                    py-sphinxcontrib-serializinghtml-1.1.5-gcc-8.5.0-jvir5tt    util-macros-1.19.3-gcc-8.5.0-qakhjsy
+   libmng-2.0.3-gcc-8.5.0-ezqzv74                       perl-xml-twig-3.52-gcc-8.5.0-yla6ovn                      py-stopit-1.1.2-gcc-8.5.0-6uxseob                           valgrind-3.18.1-gcc-8.5.0-3f3pmlk
+   libogg-1.3.5-gcc-8.5.0-rajdzbm                       perl-xml-writer-0.625-gcc-8.5.0-ukgvn7z                   py-subprocess32-3.5.4-gcc-8.5.0-hxqh5jy                     viennarna-2.5.0-gcc-8.5.0-mjlttyw
+   libpciaccess-0.16-gcc-8.5.0-jbh65ar                  perl-xml-xpathengine-0.14-gcc-8.5.0-xpv53f4               py-tabulate-0.8.9-gcc-8.5.0-klrmizy                         vsearch-2.14.1-gcc-8.5.0-x4oviwu
+   libpng-1.6.37-gcc-8.5.0-wmf67kp                      perl-yaml-1.27-gcc-8.5.0-hqzovqr                          py-toml-0.10.2-gcc-8.5.0-g5vee7f                            wget-1.21.3-gcc-8.5.0-fgqitvy
+   libpthread-stubs-0.4-gcc-8.5.0-o6mqcdq               picard-2.26.2-gcc-8.5.0-ngzb4o3                           py-toml-0.10.2-gcc-8.5.0-n5nwrka                            which-2.21-gcc-8.5.0-73wufzu
+   libsigsegv-2.13-gcc-8.5.0-vwmdhe2                    pigz-2.7-gcc-8.5.0-ylyf35g                                py-toposort-1.6-gcc-8.5.0-2rzigl6                           wps-4.3.1-gcc-8.5.0-vo57edp
+   libsm-1.2.3-gcc-8.5.0-ynmoete                        pixman-0.40.0-gcc-8.5.0-wghx3uy                           py-tqdm-4.45.0-gcc-8.5.0-hbqapgu                            wrf-4.3.3-gcc-8.5.0-krjy5y2
+   libssh2-1.10.0-gcc-8.5.0-22zrqiv                     pkgconf-1.8.0-gcc-8.5.0-iak5tgz                           py-traitlets-5.1.1-gcc-8.5.0-fom7vzv                        wrk-4.1.0-gcc-8.5.0-e6owftk
+   libsvm-323-gcc-8.5.0-ankslez                         plumed-2.8.0-gcc-8.5.0-tlh2eaa                            py-typing-extensions-4.1.1-gcc-8.5.0-kc5z66o                xcb-proto-1.14.1-gcc-8.5.0-f6usbbp
+   libtheora-1.1.1-gcc-8.5.0-7652svg                    pmix-4.1.2-gcc-8.5.0-en4mxlp                              py-urllib3-1.26.6-gcc-8.5.0-vu5z437                         xcb-util-0.4.0-gcc-8.5.0-d3h4bz2
+   libtiff-4.3.0-gcc-8.5.0-udcbn4p                      pmix-4.1.2-gcc-8.5.0-rje4f4x                              py-wheel-0.37.0-gcc-8.5.0-2v2txea                           xcb-util-image-0.4.0-gcc-8.5.0-vssdj6l
+   libtirpc-1.2.6-gcc-8.5.0-mye472h                     popt-1.16-gcc-8.5.0-lalymo2                               py-wheel-0.37.0-gcc-8.5.0-qbvy53c                           xcb-util-keysyms-0.4.0-gcc-8.5.0-og5nlrh
+   libtool-2.4.7-gcc-8.5.0-uvx3g6v                      pplacer-1.1.alpha19-gcc-8.5.0-a6jmrxw                     py-wrapt-1.13.3-gcc-8.5.0-k4iixrp                           xcb-util-renderutil-0.3.9-gcc-8.5.0-b54csw6
+   libunistring-0.9.10-gcc-8.5.0-rsq5ivg                prodigal-2.6.3-gcc-8.5.0-ixjx62u                          py-xopen-0.8.4-gcc-8.5.0-yliftxn                            xcb-util-wm-0.4.1-gcc-8.5.0-f3pxn65
+   libunwind-1.6.2-gcc-8.5.0-tcxkrfr                    prokka-1.14.6-gcc-8.5.0-iveilfb                           py-xopen-1.0.1-gcc-8.5.0-2ec24ue                            xextproto-7.3.0-gcc-8.5.0-zhhntor
+   libuuid-1.0.3-gcc-8.5.0-cpxsawl                      protobuf-3.12.3-gcc-8.5.0-yn2pwn7                         py-zipp-3.6.0-gcc-8.5.0-ez2hskc                             xkbdata-1.0.1-gcc-8.5.0-m3j2xxx
+   libuv-1.44.1-gcc-8.5.0-tsodafi                       pugixml-1.11.4-gcc-8.5.0-um7srw6                          python-2.7.18-gcc-8.5.0-kx52jxe                             xproto-7.0.31-gcc-8.5.0-nl6wkv7
+   libx11-1.7.0-gcc-8.5.0-mxgjatd                       py-alabaster-0.7.12-gcc-8.5.0-ryp2f7r                     python-3.3.6-gcc-8.5.0-lf3l7fn                              xrandr-1.5.0-gcc-8.5.0-jruqzcl
+   libxau-1.0.8-gcc-8.5.0-b5cks3a                       py-appdirs-1.4.4-gcc-8.5.0-wlkchqh                        python-3.5.10-gcc-8.5.0-7dz2pfh                             xtrans-1.3.5-gcc-8.5.0-hbeqj4i
+   libxcb-1.14-gcc-8.5.0-kk2b5rz                        py-argcomplete-2.0.0-gcc-8.5.0-os2cvsa                    python-3.6.10-gcc-8.5.0-54pdkps                             xxhash-0.8.1-gcc-8.5.0-cwjherm
+   libxdmcp-1.1.2-gcc-8.5.0-djk5cl7                     py-argh-0.26.2-gcc-8.5.0-jga2qkq                          python-3.8.0-gcc-8.5.0-xk3we4r                              xz-5.2.5-gcc-8.5.0-x6tnnw7
+   libxext-1.3.3-gcc-8.5.0-vlqdlou                      py-argparse-1.4.0-gcc-8.5.0-m2rairy                       python-3.9.12-gcc-8.5.0-ews4x7x                             zip-3.0-gcc-8.5.0-d45vrml
+   libxkbcommon-1.4.0-gcc-8.5.0-kxllo3g                 py-argparse-1.4.0-gcc-8.5.0-w7vxkpw                       qhull-2020.2-gcc-8.5.0-qy33lar                              zlib-1.2.12-gcc-8.5.0-7tnucis
+   libxml2-2.9.13-gcc-8.5.0-5ul2v2s                     py-attrs-21.4.0-gcc-8.5.0-gjctzhy                         qt-5.15.4-gcc-8.5.0-oj6aokl                                 zsh-5.8-gcc-8.5.0-lqgwk4t
+   libxpm-3.5.12-gcc-8.5.0-2eemwgz                      py-autopep8-1.6.0-gcc-8.5.0-wunuxhe                       r-3.6.3-gcc-8.5.0-4siujrn                                   zstd-1.5.2-gcc-8.5.0-36sftgk
+
+--------------------------------------------------------------------------------------------------------- /opt/apps/lmod/8.7/modulefiles/Core ---------------------------------------------------------------------------------------------------------
+   gcc-11.3.0    gcc-8.5.0    gcc-9.5.0    lmod    settarg
+
+  Where:
+   L:  Module is loaded
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
+
+
+[y4u65@lnxbio ~]$ module purge
+[y4u65@lnxbio ~]$ 

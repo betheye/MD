@@ -1,0 +1,9 @@
+编辑/查看/新建文件
+nano filename
+nano mini.mdp
+nano vegf165.pdb
+按 Ctrl+x 退出
+按 y/Y
+（更改文件名，按 y/Y）按 enter
+
+vim filename

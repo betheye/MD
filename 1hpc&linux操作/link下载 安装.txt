@@ -1,0 +1,19 @@
+wget 
+tar -zxvf
+cd
+./bootstrap --prefix=/gpfs/work/bio/xiahuang/yihan/cmake3 -- -DCMAKE_USE_OPENSSL=OFF
+"Now run gmake"
+make -j
+make install
+
+wget 
+tar -zxvf
+cd
+./configure --prefix=/gpfs/work/bio/xiahuang/yihan/fftw338 --enable-sse2 --enable-avx --enable-float --enable-shared --enable-avx2
+make -j install
+
+mkdir build
+cd build
+export CMAKE_PREFIX_PATH=gpfs/work/bio/xiahuang/yihan/fftw338
+
+失败

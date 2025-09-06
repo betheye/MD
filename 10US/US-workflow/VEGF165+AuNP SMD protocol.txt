@@ -1,0 +1,11 @@
+VEGF165+AuNP SMD protocol
+1. 从轨迹中导出最后一帧
+bash 0dump.sh
+2. pdb转gro 同时选择力场
+bash 1pdb.sh
+3. 自行修改topol(加Au力场和IAUM 6569) com.gro(加AU部分和改总数)
+并在当前路径中添加au力场(toppar文件夹)
+4. 建盒子 加水离子
+bash 2boxion.sh≈
+执行完记得打开检查盒子方向
+5. 上超算

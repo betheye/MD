@@ -1,0 +1,18 @@
+使用超算gromacs：
+module avail gromacs 并复制一个版本名（例如gromacs/2023.2-gcc-9.5.0-jzxesel or gromacs2023.2-gcc-9.5.0-4fqejx4）
+（似乎后者sbatch时会报错）
+module load gromacs/2023.2-gcc-9.5.0-jzxesel
+module load gromacs/2023.2-gcc-9.5.0-4fqejx4
+gmx_mpi 出现大段字，说明加载成功 复制Executable后的路径（例如gpfsspackoptlinux-rocky8-icelakegcc-9.5.0gromacs-2023.2-4fqejx4uajjnye4iles4dxbwsmd57dhcbingmx_mpi）
+alias gmx='/gpfs/spack/opt/linux-rocky8-icelake/gcc-9.5.0/gromacs-2023.2-4fqejx4uajjnye4iles4dxbwsmd57dhc/bin/gmx_mpi'
+gmx 出现大段字，说明添加别名成功
+
+##简洁版
+module load gromacs/2023.2-gcc-9.5.0-jzxesel
+alias gmx='/gpfs/spack/opt/linux-rocky8-icelake/gcc-9.5.0/gromacs-2023.2-jzxeselj2n5xcx3uozwap5zgemorxohk/bin/gmx_mpi'
+
+module load gromacs
+module load miniconda3
+source activate
+conda activate apbs_env
+conda activate gmxMMPBSA

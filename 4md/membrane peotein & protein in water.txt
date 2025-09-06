@@ -1,0 +1,14 @@
+membrane protein:
+more complex
+where I should put the phospholipid
+used to put manually one by one
+now we have tools which developed by previous scientists (Charmm-GUI)
+larger  ~ 300,000 atoms
+
+protein in water + matrials:
+soluable protein
+easier
+hydrophobic surface
+hydrophilic core
+(related to polar/nonpolar AAs)
+smaller  ~ 20,000 atoms

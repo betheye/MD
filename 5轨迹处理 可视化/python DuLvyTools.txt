@@ -1,0 +1,7 @@
+所有的xvg格式文件，都可以使用大神编写的python DuIvyTools脚本可视化，很方便，只要你的电脑配置了python或者anaconda或者miniconda
+
+在端口中：
+#安装
+pip install DuIvyTools
+#xvg可视化
+dit xvg_show -f fileName.xvg

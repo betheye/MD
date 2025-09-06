@@ -1,0 +1,18 @@
+wget 下载文件：
+wget http://example.com/file.tar
+
+指定文件的保存位置，使用-O（输出）选项：
+wget http://example.com/file.tar -O /path/to/dir/file.tar
+
+Curl 下载：
+curl -O https://gist.githubusercontent.com/orbeckst/6bea4a4be3ad0eb541e105edd58e93bf/raw/dff90d99d51e62f3a77d23efd5697d0b3afa8c2a/bfactor-coloring-with-MDAnalysis.ipynb
+
+*.tar 用 tar -xvf 解压
+*.gz 用 gzip -d或者gunzip 解压
+.tar.gz和.tgz 用 tar -xzf 解压
+*.bz2 用 bzip2 -d或者用bunzip2 解压	
+*.tar.bz2用tar -xjf 解压
+*.Z 用 uncompress 解压
+*.tar.Z 用tar -xZf 解压
+*.rar 用 unrar e解压
+*.zip 用 unzip 解压

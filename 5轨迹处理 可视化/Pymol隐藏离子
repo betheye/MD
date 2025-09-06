@@ -1,0 +1,17 @@
+Pymol隐藏离子
+select ions,  resn CL or resn NA
+hide everything, ions
+
+
+
+PyMOL>select ions,  resn CL or resn NA
+ Selector: selection "ions" defined with 332 atoms.
+PyMOL>hide everything, ions
+
+PyMOL>select ions,  resn CL
+ Selector: selection "ions" defined with 168 atoms.
+PyMOL>hide everything, ions
+
+PyMOL>select ions,  resn NA
+ Selector: selection "ions" defined with 168 atoms.
+PyMOL>hide everything, ions

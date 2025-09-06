@@ -1,0 +1,55 @@
+用vmd只显示vegfa/conf1的Au部分
+生成gro文件 groau.gro
+
+添加165/conf1, vegfa/con3
+调整165/conf1位置
+https://www.ks.uiuc.edu/Training/Tutorials/vmd/tutorial-html/node4.html
+生成pdb文件final1.pdb
+
+在pymol打开groau.gro，添加final.pdb
+export molecule
+.pdb
+
+生成final.pdb
+
+set sel [atomselect top "protein"]
+$sel num 验证数量以验证选择正确	
+$sel moveby {10 0 0}	 
+$sel move [transaxis x 40 deg]	 
+animate move $sel to 10 10 10错误
+measure center $sel	 
+measure minmax $sel
+
+same residue as (x-100)^2+(y-100)^2+(z-100)^2<=10000
+same residue as z>=181.5
+same residue as (x-50)^2+(y-50)^2+(z-50)^2<=2500
+same residue as z>=90.75
+
+box dimension, 坐标：单位是埃
+10埃=1nm
+
+关于 F 标志需要注意的一件事是，尽管当其中一个分子固定时，一个分子似乎相对于另一个分子移动了，但差异只是明显的。分子的内部坐标不会因旋转、平移和缩放运动而改变。要更改分子中原子的坐标，您需要使用文本命令接口（在第 3.2.3 节中讨论），并使用原子移动选择模式（通过选择鼠标$ \右箭头 $移动在 VMD 主菜单中）。
+One thing to notice about the F flag is that, although it may seem that one molecule has been moved relative to another when one of the molecules is fixed, the difference is only apparent. The internal coordinates of molecules are not changed by the rotation, translation and scaling motions. To change the coordinates of atoms in a molecule you need to use the text command interface (discussed in Section 3.2.3), and by using the atom move picking modes (by choosing Mouse $ \右箭头 $ Move in the VMD Main menu).
+https://www.ks.uiuc.edu/Training/Tutorials/vmd/tutorial-html/node6.html#SECTION00061400000000000000
+
+Main console display active (Tcl8.5.6 / Tk8.5.6)
+(vmd) 1 % set sel [atomselect top "protein"]
+atomselect0
+>Main< (vmd) 2 % $sel num
+3060
+>Main< (vmd) 3 % measure center $sel
+62.61714553833008 67.23690032958984 66.47513580322266
+>Main< (vmd) 4 % set sel2 [atomselect top "all"]
+atomselect1
+>Main< (vmd) 5 % $sel num
+3060
+>Main< (vmd) 6 % $sel2 num
+4892
+>Main< (vmd) 7 % measure center $sel2
+51.59452819824219 53.7783317565918 54.44765853881836
+>Main< (vmd) 8 % $sel moveby {11 14 12}	
+>Main< (vmd) 9 % $sel moveby {-11 -14 -12}	
+>Main< (vmd) 10 % $sel2 moveby {11 14 12}	
+
+107
+100-18.5=81.5

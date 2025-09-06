@@ -1,0 +1,15 @@
+export PATH=$PATH:'/mnt/e/software/vmd'
+E:\software\vmd
+
+每次都要export PATH=$PATH:'/mnt/e/software/vmd'才能使用vmd.exe太烦了
+解决方法：（.bashrc文件是每次启动都会运行一遍的配置文件）
+1.	以防万一，将root用户下的.bashrc文件备份(当前登录用户为root)
+cp ~/.bashrc ~/.bashrc_bak
+2.	nano ~/.bashrc
+3.	在最后一行添加export PATH=$PATH:'/mnt/e/software/vmd'
+4.	关闭当前终端窗口，重新打开一个新终端窗口就能生效 or 输入“source ~/.bashrc”命令，立即生效
+有效期限：永久有效
+用户局限：仅对当前用户
+
+https://www.cnblogs.com/zhengqdan/p/16808214.html
+https://www.cnblogs.com/freyluo/p/11059462.html
